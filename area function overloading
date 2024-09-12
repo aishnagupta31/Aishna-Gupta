@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+class xyz{
+    public:
+    double calculatearea(int x,int y){
+        return x*y;
+    }
+    double calculatearea(double b,double h){
+        return 0.5*b*h;
+    }
+    double calculatearea(int s){
+        return s*s;
+    }
+};
+int main(){
+    xyz d1;
+    cout<<"Area of rectangle: "<<d1.calculatearea(5,6)<<endl;
+    cout<<"Area of triangle: "<<d1.calculatearea(8.0,8.0)<<endl;
+    cout<<"Area of square: "<<d1.calculatearea(4)<<endl;
+}
