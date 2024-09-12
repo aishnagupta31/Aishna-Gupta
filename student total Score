@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    string name;
+    int scores[5];
+    int totalScore;
+
+public:
+    void setDetails(string name, int s[]) {
+        this->name = name;
+        for (int i = 0; i < 5; ++i) {
+            this->scores[i] = s[i];
+        }
+        calculateTotalScore();
+    }
+    void input(){
+        for(int i=0;i<5;i++){
+            cin>>scores[i];
+        }
+    }
+    int calannatotalscore(){
+        
+    }
+    int calculateTotalScore() {
+        totalScore = 0;
+        for (int i = 0; i < 5; ++i) {
+            totalScore += scores[i];
+        }
+        return totalScore;
+    }
+
+    int getTotalScore() {
+        return totalScore;
+    }
+
+    string getName() {
+        return name;
+    }
+};
+
+int main() {
+    Student anna;
+    cout<<"Enter anna's 5 exam score: ";
+    anna.input();
+    int annaTotalScore= anna.calculateTotalScore();
+
+    int n;
+    cout << "Enter the number of students excluding anna : ";
+    cin >> n;
+    Student students[100];
+    int studentCount = 0;
+
+    for (int i = 0; i < n; ++i) {
+        string name;
+        cout << "Enter name of student " << i+1 << ": ";
+        cin >> name;
+
+        int scores[5];
+        for (int j = 0; j < 5; ++j) {
+            cout << "Enter score " << j+1 << ": ";
+            cin >> scores[j];
+        }
+        students[i].setDetails(name, scores);
+    }
+    int count = 0;
+    for (int i = 0; i < n; ++i) {
+        if (students[i].getTotalScore() > annaTotalScore) {
+            ++count;
+        }
+    }
+
+    cout << "Number of students who scored higher than Anna: " << count << endl;
+
+    return 0;
+}
