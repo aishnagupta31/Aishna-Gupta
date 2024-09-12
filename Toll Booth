@@ -1,0 +1,47 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class TollBooth{
+    unsigned int car_total;
+    double cash_total;
+    public:
+    TollBooth(unsigned int car_total,double cash_total){
+        this->car_total=car_total;
+        this->cash_total=cash_total;
+    }
+    void payingCar(){
+        car_total++;
+        cash_total=cash_total+0.5;
+    }
+    void nonPayCar(){
+        car_total++;
+    }
+    void display(){
+        cout<<"TTotal number of cars: "<<car_total<<endl;
+        cout<<"Total cash collected: "<<cash_total<<endl;
+    }
+};
+int main(){
+    TollBooth t1(0,0);
+    char z;
+    cout<<"Enter the operation to perform on an array"<<endl;
+    cout<<"Enter p to call paying Car"<<endl;
+    cout<<"Enter n to call non Pay Car"<<endl;
+    cout<<"Enter 'ESC' key to display"<<endl;
+    while(true){
+        z = _getch();
+        cout << "Key pressed: " << z << endl;
+        switch(z){
+            case 'p': t1.payingCar();
+            break;
+            case 'n': t1.nonPayCar();
+            break;
+            case 27: t1.display();
+            break;
+            default:
+            cout << "Invalid key pressed. Use 'p', 'n', or ESC." << endl;
+            break;
+        }
+    }
+    return 0;
+}
