@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class time{
+    int hrs;
+    int min;
+    int sec;
+    public:
+    time(){
+        hrs=0;
+        min=0;
+        sec=0;
+    }
+    time(int hrs,int min,int sec){
+        this->hrs=hrs;
+        this->min=min;
+        this->sec=sec;
+    }
+
+    void display(){
+        cout<<hrs<<":"<<min<<":"<<sec;
+    }
+    void add(){
+        if(sec>=60){
+            min = min+ (sec / 60);
+            sec =sec % 60;
+        }
+        if(min>=60){
+            hrs = hrs+ (min / 60);
+            min = min % 60;
+        }
+    }
+
+};
+int main(){
+    int h;
+    cout<<"Enter no.of hrs: ";
+    cin>>h;
+    int m;
+    cout<<"Enter no.of minutes: ";
+    cin>>m;
+    int s;
+    cout<<"Enter no.of seconds: ";
+    cin>>s;
+    time t1(h,m,s);
+    t1.add();
+    t1.display();
+}
