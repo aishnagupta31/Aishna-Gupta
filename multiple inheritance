@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+class student{
+    private:
+    int age;
+    string name;
+    int enroll_no;
+    int marks;
+    public:
+    student(){}
+    student(int age,string name,int enroll_no,int marks){
+        this->age=age;
+        this->name=name;
+        this->enroll_no=enroll_no;
+        this->marks=marks;
+    }
+    void display(){
+        cout<<age<<" "<<name<<" "<<enroll_no<<" "<<marks<<" "<<endl;
+    }
+};
+class faculty{
+    private:
+    string facultyName;
+    int facultyCode;
+    int salary;
+    int deptt;
+    int age;
+    int experience;
+    string gender;
+    public:
+    faculty(){}
+    faculty(string facultyName,int facultyCode,int salary,int deptt,int age,int experience,string gender){
+        this->facultyName=facultyName;
+        this->facultyCode=facultyCode;
+        this->salary=salary;
+        this->deptt=deptt;
+        this->age=age;
+        this->experience=experience;
+        this->gender=gender;
+    }
+    void display(){
+        cout<<facultyName<<" "<<facultyCode<<" "<<salary<<" "<<deptt<<" "<<age<<" "<<experience<<" "<<gender<<endl;
+    }
+};
+class person:public student, public faculty{
+    public:
+    person(int age, string name, int enroll_no, int marks, string facultyName, int facultyCode, 
+           int salary, int deptt, int facultyAge, int experience, string gender)
+        : student(age, name, enroll_no, marks), faculty(facultyName, facultyCode, salary, deptt, age, experience, gender) {}
+};
+int main(){
+    person p(23,"aishna",123,90,"Manvi",456,150000,7000,25,1,"Female");
+    p.student::display();
+    p.faculty::display();
+}
