@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+class person{
+    private:
+    string name="Aishna";
+    int age=23;
+    public:
+    void showDetails(){
+        cout<<name<<" "<<age<<endl;
+    }
+};
+class student: virtual public person{
+    private:
+    int roll_no;
+    string dept;
+    public:
+    student(){
+        cout<<"Student's object created\n";
+    }
+};
+class emp: virtual public person{
+    private:
+    int salary;
+    int PAN;
+    public:
+    emp(){
+        cout<<"emps's object created"<<endl;
+    }
+};
+class xyz:public student,public emp{
+    public:
+    xyz(){
+        cout<<"xyz's object created\n";
+    }
+};
+int main(){
+    xyz d1;
+    d1.showDetails();
+}
